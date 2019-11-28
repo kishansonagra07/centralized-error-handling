@@ -1,0 +1,11 @@
+class AppError extends Error {
+    constructor(message, statusCode){
+        super(message);
+        this.statusCode = statusCode;
+        this.status = 'error';
+        this.isOperational = true; // define production error with true
+
+       Error.captureStackTrace(this, this.constructor);
+    }
+}
+module.exports = AppError;
